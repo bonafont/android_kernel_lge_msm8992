@@ -34,15 +34,15 @@ static inline long check_uid(kuid_t uid)
 long set_media_ext(const char *media_ext_list)
 {
 	long len, rc = 0;
-	uid_t uid;
+	kuid_t uid;
 
 	/* check uid if it's not root(0) nor system(1000) */
 	uid = current_uid();
 	if (check_uid(uid)) {
 		pr_err("%s: %s(%u) not permitted.\n",
-				__func__, current->comm, uid);
+				__func__, current->comm, uid.val);
 		pr_err(" [CCAudit] %s: %s(%u) not permitted.\n",
-				__func__, current->comm, uid);
+				__func__, current->comm, uid.val);
 		return -EPERM;
 	}
 

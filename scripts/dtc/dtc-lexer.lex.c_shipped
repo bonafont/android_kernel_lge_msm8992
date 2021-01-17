@@ -636,7 +636,7 @@ char *yytext;
 #include "dtc.h"
 #include "srcpos.h"
 #include "dtc-parser.tab.h"
-
+//test
 YYLTYPE yylloc;
 
 /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
